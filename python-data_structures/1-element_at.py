@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 def element_at(my_list, idx):
     """
-    Retrieve an element from a list at specific index
-    
+    Retrieve an element from a list at specific index    
     Args:
         my_list: The list
         idx: The index to retrieve
