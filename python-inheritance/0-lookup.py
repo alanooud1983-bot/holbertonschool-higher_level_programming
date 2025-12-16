@@ -7,7 +7,7 @@ Contains function: lookup
 
 def lookup(obj):
     """
-    Returns the list of available attributes and methods of an object 
+    Returns the list of available attributes and methods of an object
     Args:
         obj: Any Python object
     Returns:
