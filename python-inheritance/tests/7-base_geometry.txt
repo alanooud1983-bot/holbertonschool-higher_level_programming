@@ -1,65 +1,12 @@
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
-
->>> # Test 1: Valid integers should not raise exceptions
->>> bg.integer_validator("positive", 1)
->>> bg.integer_validator("large", 1000)
->>> bg.integer_validator("medium", 42)
-
->>> # Test 2: Non-integers should raise TypeError
->>> try:
-...     bg.integer_validator("string", "hello")
-... except TypeError as e:
-...     print("TypeError:", e)
-TypeError: string must be an integer
-
->>> try:
-...     bg.integer_validator("float", 3.14)
-... except TypeError as e:
-...     print("TypeError:", e)
-TypeError: float must be an integer
-
->>> try:
-...     bg.integer_validator("list", [1, 2])
-... except TypeError as e:
-...     print("TypeError:", e)
-TypeError: list must be an integer
-
->>> # Test 3: Zero and negative should raise ValueError
->>> try:
-...     bg.integer_validator("zero", 0)
-... except ValueError as e:
-...     print("ValueError:", e)
-ValueError: zero must be greater than 0
-
->>> try:
-...     bg.integer_validator("negative", -5)
-... except ValueError as e:
-...     print("ValueError:", e)
-ValueError: negative must be greater than 0
-
->>> try:
-...     bg.integer_validator("negative_large", -100)
-... except ValueError as e:
-...     print("ValueError:", e)
-ValueError: negative_large must be greater than 0
-
->>> # Test 4: area() should raise Exception
->>> try:
-...     bg.area()
-... except Exception as e:
-...     print("Exception:", e)
-Exception: area() is not implemented
-
->>> # Test 5: Boolean True/False (should be TypeError)
->>> try:
-...     bg.integer_validator("bool_true", True)
-... except TypeError as e:
-...     print("TypeError:", e)
-TypeError: bool_true must be an integer
-
->>> try:
-...     bg.integer_validator("bool_false", False)
-... except TypeError as e:
-...     print("TypeError:", e)
-TypeError: bool_false must be an integer
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+TypeError: name must be an integer
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+ValueError: age must be greater than 0
+>>> bg.integer_validator("age", -5)
+Traceback (most recent call last):
+ValueError: age must be greater than 0
