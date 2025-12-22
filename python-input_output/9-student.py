@@ -18,6 +18,7 @@ class Student:
     def __init__(self, first_name, last_name, age):
         """
         Initialize a new Student instance
+
         Args:
             first_name (str): First name of the student
             last_name (str): Last name of the student
@@ -39,7 +40,8 @@ class Student:
         for attr_name in dir(self):
             if not attr_name.startswith('__'):
                 attr_value = getattr(self, attr_name)
-                if isinstance(attr_value, (dict, list, str, int, bool)):
-                    result[attr_name] = attr_value
 
-                    return result
+                if isinstance(attr_value, (dict, list, str, int, bool)):
+                        result[attr_name] = attr_value
+
+                        return result
