@@ -14,7 +14,7 @@ class Student:
         last_name (str): Student's last name
         age (int): Student's age
     """
-
+    
     def __init__(self, first_name, last_name, age):
         """
         Initialize a new Student instance
@@ -27,9 +27,8 @@ class Student:
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-
-        def to_json(self):
-
+    
+    def to_json(self):
         """
         Retrieve a dictionary representation of a Student instance
 
@@ -37,12 +36,12 @@ class Student:
             dict: Dictionary containing student attributes
         """
         result = {}
-
+        
         for attr_name in dir(self):
             if not attr_name.startswith('__'):
                 attr_value = getattr(self, attr_name)
-
+                
                 if isinstance(attr_value, (dict, list, str, int, bool)):
-                        result[attr_name] = attr_value
-
-                        return result
+                    result[attr_name] = attr_value
+        
+        return result
