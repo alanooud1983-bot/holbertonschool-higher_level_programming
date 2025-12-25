@@ -14,7 +14,7 @@ My name is Walter White
 My name is Bob
 
 >>> say_my_name("Bob", "")
-My name is Bob
+My name is Bob 
 
 # ==============================================================================
 # Test Case 1: Normal cases with spaces
@@ -37,7 +37,7 @@ My name is  Smith
 My name is Alanoud Naif
 
 >>> say_my_name("Alanoud", "")
-My name is Alanoud
+My name is Alanoud 
 
 # ==============================================================================
 # Test Case 3: Special characters
@@ -135,7 +135,7 @@ My name is John Michael Doe Smith
 
 # Test Case 10: Only spaces
 >>> say_my_name("   ", "   ")
-My name is
+My name is  
 
 # Test Case 11: No arguments (should fail)
 >>> say_my_name()
