@@ -27,7 +27,6 @@ def matrix_divided(matrix, div):
             "matrix must be a matrix (list of lists) of integers/floats"
         )
 
-    # التحقق من أن كل صف في matrix هو list
     for row in matrix:
         if not isinstance(row, list):
             raise TypeError(
@@ -62,8 +61,32 @@ def matrix_divided(matrix, div):
         new_row = []
         for element in row:
             result = element / div
-            rounded = int(result * 100 + (0.5 if result >= 0 else -0.5)) / 100.0
-            new_row.append(rounded)
+
+            result_str = f"{result:.10f}"
+
+            if '.' in result_str:
+                int_part, dec_part = result_str.split('.')
+                dec_3_digits = dec_part[:3].ljust(3, '0')
+
+                int_val = int(int_part) if int_part else 0
+                dec_val = int(dec_3_digits[:2])
+                third_digit = int(dec_3_digits[2]) if len(dec_3_digits) > 2 else 0
+
+                if third_digit >= 5:
+                    dec_val += 1
+                    if dec_val >= 100:
+                        int_val += 1
+                        dec_val = 0
+
+                rounded = int_val + (dec_val / 100.0)
+
+                if result < 0 and rounded == 0:
+                    rounded = -0.0
+
+                new_row.append(rounded)
+            else:
+                new_row.append(float(result_str))
+
         new_matrix.append(new_row)
 
     return new_matrix
