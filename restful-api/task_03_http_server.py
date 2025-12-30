@@ -33,28 +33,22 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
         if self.path == "/":
             self._send_text(200, "Hello, this is a simple API!")
         elif self.path == "/data":
-            self._send_json(
-                200,
-                {"name": "John", "age": 30, "city": "New York"}
-            )
+            self._send_json(200, {"name": "John", "age": 30, "city": "New York"})
         elif self.path == "/status":
             self._send_text(200, "OK")
         elif self.path == "/info":
             self._send_json(
                 200,
-                {
-                    "version": "1.0",
-                    "description": "A simple API built with http.server"
-                }
+                {"version": "1.0", "description": "A simple API built with http.server"}
             )
         else:
-            self._send_json(404, {"error": "Endpoint not found"})
+            #Required: 404 with appropriate message (plain text)
+            self._send_text(404, "Endpoint not found")
 
 
 def run_server(host="0.0.0.0", port=8000):
     """Start the HTTP server."""
     server = HTTPServer((host, port), SimpleAPIHandler)
-    print(f"Server running on http://localhost:{port}")
     server.serve_forever()
 
 
