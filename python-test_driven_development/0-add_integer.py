@@ -1,30 +1,23 @@
 #!/usr/bin/python3
 """
-Function that adds 2 integers.
+Module that provides a function to add two integers.
 """
 
 
 def add_integer(a, b=98):
-    """Adds two integers or floats after casting.
+    """
+    Add two integers or floats.
 
     Args:
-        a: first number
-        b: second number
+        a (int or float): first number
+        b (int or float): second number
 
     Returns:
-        int: addition of a and b
-
-    Raises:
-        TypeError: if a or b are not int or float
-        ValueError: if a or b are NaN
+        int: the addition of a and b
     """
-    if isinstance(a, float) and (a != a):
-        raise ValueError("cannot convert float NaN to integer")
-    if isinstance(b, float) and (b != b):
-        raise ValueError("cannot convert float NaN to integer")
-
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
     if not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
+
     return int(a) + int(b)
