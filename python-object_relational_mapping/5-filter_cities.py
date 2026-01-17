@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 Lists all cities of a state from the database hbtn_0e_4_usa.
-Usage: ./5-filter_cities.py <mysql username> <mysql password> <database name> <state name>
+Usage: ./5-filter_cities.py <mysql username> <mysql password>
+<database name> <state name>
 """
 
 import MySQLdb
